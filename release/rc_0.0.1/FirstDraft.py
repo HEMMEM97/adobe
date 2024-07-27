@@ -1,8 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import check
-
-art = 3
 
 def read_csv(csv_path):
     np_path_XYs = np.genfromtxt(csv_path, delimiter=',')
@@ -20,12 +17,10 @@ def read_csv(csv_path):
 
 
 def getCoordinates(num : int, path_XYs):
-    XYs = path_XYs[num] #list of list, inner list x,y.
-    for i, XY in enumerate(XYs):
-        L = []
-        for i in range(len(XY)):
-            L.append([XY[:, 0][i], XY[:, 1][i]])
-    return L
+      XYs = path_XYs[7] #list of list, inner list x,y.
+      for i, XY in enumerate(XYs) :
+            return [XY[:, 0], XY[:, 1]] 
+
 
 def plot(paths_XYs, colours):
     fig, ax = plt.subplots(tight_layout=True, figsize=(8, 8))
@@ -37,26 +32,49 @@ def plot(paths_XYs, colours):
 
 
 
-    XYs = path_XYs[art] #list of list, inner list x,y.
+    XYs = path_XYs[7] #list of list, inner list x,y.
     for i, XY in enumerate(XYs) :
             # ax.plot(XY[:, 0], XY[:, 1], c=colours[0], linewidth=2)     
+            print(i)
             for i in range(len(XY)):
+                 print(XY[:, 0][i], XY[:, 1][i])
                  plt.scatter(XY[:, 1][i] * 10, XY[:, 0][i] * 10,c='black', s=0.05)
             
     # print(XYs)
 
+    XYs = path_XYs[6] #list of list, inner list x,y.
+    for i, XY in enumerate(XYs) :
+            # ax.plot(XY[:, 0], XY[:, 1], c=colours[0], linewidth=2)     
+            print(i)
+            for i in range(len(XY)):
+                 print(XY[:, 0][i], XY[:, 1][i])
+                 plt.scatter(XY[:, 1][i] * 10, XY[:, 0][i] * 10,c='red', s=0.05)
+
+    XYs = path_XYs[8] #list of list, inner list x,y.
+    for i, XY in enumerate(XYs) :
+            # ax.plot(XY[:, 0], XY[:, 1], c=colours[0], linewidth=2)     
+            print(i)
+            for i in range(len(XY)):
+                 print(XY[:, 0][i], XY[:, 1][i])
+                 plt.scatter(XY[:, 1][i] * 10, XY[:, 0][i] * 10,c='blue', s=0.05)       
+
+
+
+    XYs = path_XYs[9] #list of list, inner list x,y.
+    for i, XY in enumerate(XYs) :
+            # ax.plot(XY[:, 0], XY[:, 1], c=colours[0], linewidth=2)     
+            print(i)
+            for i in range(len(XY)):
+                 print(XY[:, 0][i], XY[:, 1][i])
+                 plt.scatter(XY[:, 1][i] * 10, XY[:, 0][i] * 10,c='blue', s=0.05)                         
+    
+    
     ax.set_aspect('equal')
     plt.show()
     
 
 
-path_XYs = read_csv("problems/frag01_sol.csv")    
+path_XYs = read_csv("problems/frag0.csv")    
 plot(path_XYs,['red'])
 
-
-
-L = getCoordinates(art , path_XYs)
-print(L)
-accuracy = check.straight_line(L)
-print(accuracy)
 
