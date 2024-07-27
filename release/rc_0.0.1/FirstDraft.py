@@ -16,6 +16,11 @@ def read_csv(csv_path):
     return path_XYs
 
 
+def getCoordinates(num : int, path_XYs):
+      XYs = path_XYs[7] #list of list, inner list x,y.
+      for i, XY in enumerate(XYs) :
+            return [XY[:, 0], XY[:, 1]] 
+
 
 def plot(paths_XYs, colours):
     fig, ax = plt.subplots(tight_layout=True, figsize=(8, 8))
